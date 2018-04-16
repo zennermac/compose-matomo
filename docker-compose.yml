@@ -1,7 +1,7 @@
 version: '2'
 networks:
   lb_web:
-    external: true
+    external: false
   back:
     driver: bridge
 services:
@@ -31,6 +31,8 @@ services:
       - app
     environment:
       - VIRTUAL_HOST
+    ports:
+      - "80:80"
     networks:
     - back
     - lb_web
